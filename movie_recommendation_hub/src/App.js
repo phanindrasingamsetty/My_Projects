@@ -5,6 +5,8 @@ import Login from './Login';
 import { Outlet, Router, RouterProvider, createBrowserRouter } from 'react-router-dom';
 import Body from './Body';
 import Contact from './Contact';
+import { Provider } from 'react-redux';
+import store from './utils/store.js';
 
 function App() {
   const Layout=()=>{
@@ -38,7 +40,9 @@ function App() {
     }
   ])
   return(
+    <Provider store={store}>
     <RouterProvider router={app_router}/>
+    </Provider>
   )
 }
 
