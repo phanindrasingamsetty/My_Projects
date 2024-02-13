@@ -1,8 +1,11 @@
 import React from 'react'
+import Browse from './Browse'
 
 const Body = () => {
   return (
-    <div>Body</div>
+    <div>
+        <Browse/>
+    </div>
   )
 }
 
