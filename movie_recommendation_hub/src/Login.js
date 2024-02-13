@@ -5,6 +5,7 @@ import { getAuth, signInWithEmailAndPassword,updateProfile,createUserWithEmailAn
 import auth from './firebase';
 import { changeusername } from './utils/userslice';
 import { useNavigate } from 'react-router-dom';
+import Browse from './Browse';
 
 const Login = () => {
     
@@ -66,12 +67,14 @@ const Login = () => {
             setsignup(0)
         }
     }
+    //<img src="https://miro.medium.com/v2/resize:fit:6720/1*v5fvVabIVpP65OEYs7IxTA.png"/>
   return (
-    <div>
-        <div className={` absolute ${signinstate&&'opacity-50'}`}>
-            <img src="https://miro.medium.com/v2/resize:fit:6720/1*v5fvVabIVpP65OEYs7IxTA.png"/>
-        </div>
-        {signinstate&&<div className='p-12 bg-black absolute mt-48 mx-auto my-auto right-0 left-0 w-3/12 rounded-lg bg-opacity-80 flex flex-col justify-center items-center'>
+    <div className='realtive'>
+        <div className='relative'>
+        <div className={` ${signinstate&&'opacity-50'}`}>
+            <Browse/>
+        </div></div>
+        {signinstate&&<div className='p-12 bg-black absolute mt-72 mx-auto my-auto top-0 right-0 left-0 w-3/12 rounded-lg bg-opacity-80 flex flex-col justify-center items-center'>
             {signup==1&&<input ref={name} className='p-2 mb-2 w-full' type='text' placeholder='name'/>}
             <input ref={email} className='p-2 mb-2 w-full' type='text' placeholder='email'/>
             <input ref={password} className='p-2 mb-2 w-full' type='password'/>

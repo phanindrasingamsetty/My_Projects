@@ -2,7 +2,6 @@ import React from 'react'
 import Card from './Card'
 
 const Container = ({details,title}) => {
-    console.log(details)
   return (
     <div className=''>
         <h1 className='bg-gradient-to-r from-blue-700 text-white font-bold w-1/2 text-5xl p-2'>{title}</h1>
