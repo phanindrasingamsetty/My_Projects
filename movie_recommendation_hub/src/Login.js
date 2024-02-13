@@ -6,24 +6,28 @@ import auth from './firebase';
 import { changeusername } from './utils/userslice';
 import { useNavigate } from 'react-router-dom';
 import Browse from './Browse';
+import Body from './Body';
 
 const Login = () => {
-    
     const [signup,setsignup]=useState(0);
     const [errormessage,seterrormessage]=useState(null)
     const signinstate=useSelector((store)=>store.user.signinstat)
+    const userdata=useSelector((store)=>store.user.username)
     const email=useRef(null)
     const password=useRef(null)
     const name=useRef(null)
     const dispatch=useDispatch()
     const navigate=useNavigate()
+    if(userdata){
+        console.log("logn into this")
+        navigate("/browse")
+    }
     const handlelogin=({email,password,name})=>{
         if(!signup){
             signInWithEmailAndPassword(auth, email.current.value, password.current.value)
             .then((userCredential) => {
               // Signed in 
               const user = userCredential.user;
-              console.log(user)
               dispatch(changeusername(user.displayName))
               navigate("/browse")
               // ...
@@ -72,7 +76,7 @@ const Login = () => {
     <div className='realtive'>
         <div className='relative'>
         <div className={` ${signinstate&&'opacity-50'}`}>
-            <Browse/>
+            <Body/>
         </div></div>
         {signinstate&&<div className='p-12 bg-black absolute mt-72 mx-auto my-auto top-0 right-0 left-0 w-3/12 rounded-lg bg-opacity-80 flex flex-col justify-center items-center'>
             {signup==1&&<input ref={name} className='p-2 mb-2 w-full' type='text' placeholder='name'/>}

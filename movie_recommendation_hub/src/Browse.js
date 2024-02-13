@@ -29,13 +29,26 @@ const Browse = () => {
     const listpopular=useSelector((store)=>store.data.popular)
     const listtoprated=useSelector((store)=>store.data.toprated)
     const listupcoming=useSelector((store)=>store.data.upcoming)
+    const userdata=useSelector((store)=>store.user.username)
     if(!listnowplaying)return
   return (
-    <div className='mt-36'>
-        <Container details={listnowplaying} title="Now_Playing"/>
-        <Container details={listtoprated} title="Top_Rated"/>
-        <Container details={listpopular} title="Popular"/>
-        <Container details={listupcoming} title="Upcoming"/>
+    <div className='relative'>
+        <div className='relative'>
+        <div className='mt-36'>
+            <Container details={listnowplaying} title="Now_Playing"/>
+            <Container details={listtoprated} title="Top_Rated"/>
+            <Container details={listpopular} title="Popular"/>
+            <Container details={listupcoming} title="Upcoming"/>
+        </div>
+        </div>
+        {userdata&&<div className='flex justify-center'>
+        <div className='bg-black opacity-90 w-2/3 h-3/6 absolute mx-auto top-3'>
+            <div className='flex p-5 '>
+            <input className="w-full h-10 border border-blue-500 rounded-l-3xl p-4" type="text" placeholder='Type the you would like to watch'/>
+            <button className='bg-blue-500  rounded-r-3xl h-10 w-10'>🔍</button>
+            </div>
+        </div>
+        </div>}
     </div>
     )
 }
