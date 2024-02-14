@@ -2,6 +2,7 @@ import React, { useEffect, useState } from 'react'
 import Container from './Container';
 import { useDispatch, useSelector } from 'react-redux';
 import { addnowplaying, addpopular, addtoprated, addupcoming } from './utils/dataslice';
+import GptSearching from './GptSearching';
 
 const Browse = () => {
     const options = {
@@ -33,7 +34,7 @@ const Browse = () => {
     if(!listnowplaying)return
   return (
     <div className='relative'>
-        <div className='relative'>
+        <div className={`relative ${userdata&&'opacity-50'}`}>
         <div className='mt-36'>
             <Container details={listnowplaying} title="Now_Playing"/>
             <Container details={listtoprated} title="Top_Rated"/>
@@ -41,14 +42,7 @@ const Browse = () => {
             <Container details={listupcoming} title="Upcoming"/>
         </div>
         </div>
-        {userdata&&<div className='flex justify-center'>
-        <div className='bg-black opacity-90 w-2/3 h-3/6 absolute mx-auto top-3'>
-            <div className='flex p-5 '>
-            <input className="w-full h-10 border border-blue-500 rounded-l-3xl p-4" type="text" placeholder='Type the you would like to watch'/>
-            <button className='bg-blue-500  rounded-r-3xl h-10 w-10'>🔍</button>
-            </div>
-        </div>
-        </div>}
+        {userdata&&<GptSearching/>}
     </div>
     )
 }

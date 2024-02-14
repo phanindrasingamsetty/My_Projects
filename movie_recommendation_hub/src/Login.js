@@ -1,4 +1,4 @@
-import React, { useRef, useState } from 'react'
+import React, { useEffect, useRef, useState } from 'react'
 import { useDispatch, useSelector } from 'react-redux';
 import { Store } from '@reduxjs/toolkit';
 import { getAuth, signInWithEmailAndPassword,updateProfile,createUserWithEmailAndPassword } from "firebase/auth";
@@ -22,7 +22,14 @@ const Login = () => {
         console.log("logn into this")
         navigate("/browse")
     }
+    const handlerel=()=>{
+        if(userdata){
+            navigate('/browse')
+        }
+    }
+    useEffect(()=>{handlerel()})
     const handlelogin=({email,password,name})=>{
+        
         if(!signup){
             signInWithEmailAndPassword(auth, email.current.value, password.current.value)
             .then((userCredential) => {
@@ -76,7 +83,7 @@ const Login = () => {
     <div className='realtive'>
         <div className='relative'>
         <div className={` ${signinstate&&'opacity-50'}`}>
-            <Body/>
+            <Browse/>
         </div></div>
         {signinstate&&<div className='p-12 bg-black absolute mt-72 mx-auto my-auto top-0 right-0 left-0 w-3/12 rounded-lg bg-opacity-80 flex flex-col justify-center items-center'>
             {signup==1&&<input ref={name} className='p-2 mb-2 w-full' type='text' placeholder='name'/>}
