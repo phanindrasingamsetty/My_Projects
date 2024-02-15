@@ -12,7 +12,7 @@ const GptSearching = () => {
       };
     const searchtxt=useRef(null)
     const openai = new OpenAI({
-        apiKey: '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', // This is the default and can be omitted
+        apiKey: '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', // This is the default and can be omitted
         dangerouslyAllowBrowser: true
       });
     const [mvelist,setmvelist]=useState("")
