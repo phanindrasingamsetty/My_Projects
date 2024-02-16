@@ -7,6 +7,7 @@ import Body from './Body';
 import Contact from './Contact';
 import { Provider } from 'react-redux';
 import store from './utils/store.js';
+import Wishlist from './Wishlist.js';
 
 function App() {
   const Layout=()=>{
@@ -35,6 +36,10 @@ function App() {
         {
           path:"/contact",
           element:<Contact/>
+        },
+        {
+          path:'/wishlist',
+          element:<Wishlist/>
         }
       ]
     }

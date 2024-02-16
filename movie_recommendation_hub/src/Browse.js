@@ -13,6 +13,7 @@ const Browse = () => {
         }
         }
         const dispatch=useDispatch()
+        const suggestionbox=useSelector((store)=>store.data.suggestionbox)
         const genre=['now_playing','popular','top_rated','upcoming']
         const fetching=async()=>{
             const nowplaying =await(await fetch('https://api.themoviedb.org/3/movie/'+'now_playing'+'?language=en-US&page=1', options)).json()
@@ -31,10 +32,11 @@ const Browse = () => {
     const listtoprated=useSelector((store)=>store.data.toprated)
     const listupcoming=useSelector((store)=>store.data.upcoming)
     const userdata=useSelector((store)=>store.user.username)
+    const suggestionbtn=useSelector((store)=>store.data.suggestionbox)
     if(!listnowplaying)return
   return (
     <div className='relative'>
-        <div className={`relative ${userdata&&'opacity-50'}`}>
+        <div className={`relative ${userdata&&suggestionbtn&&'opacity-50'}`}>
         <div className='mt-36'>
             <Container details={listnowplaying} title="Now_Playing"/>
             <Container details={listtoprated} title="Top_Rated"/>
@@ -42,7 +44,7 @@ const Browse = () => {
             <Container details={listupcoming} title="Upcoming"/>
         </div>
         </div>
-        {userdata&&<GptSearching/>}
+        {userdata&&suggestionbox&&<GptSearching/>}
     </div>
     )
 }
