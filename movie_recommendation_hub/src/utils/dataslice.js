@@ -7,6 +7,7 @@ const dataslice=createSlice({
         nowplaying:null,
         toprated:null,
         upcoming:null,
+        wishlist:[],
         suggestionbox:true
     },
     reducers:{
@@ -24,9 +25,15 @@ const dataslice=createSlice({
         },
         chgsuggestionbox:(state,action)=>{
             state.suggestionbox=action.payload
+        },
+        addtowishlist:(state,action)=>{
+            state.wishlist.push(action.payload)
+        },
+        removefromwishlist:(state,action)=>{
+            state.wishlist.splice(action.payload,1)
         }
     }
 })
 
-export const{addnowplaying,addpopular,addtoprated,addupcoming,chgsuggestionbox}=dataslice.actions
+export const{addnowplaying,addpopular,addtoprated,addupcoming,chgsuggestionbox,addtowishlist,removefromwishlist}=dataslice.actions
 export default dataslice.reducer

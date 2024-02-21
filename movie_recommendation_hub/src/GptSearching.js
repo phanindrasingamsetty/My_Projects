@@ -18,7 +18,8 @@ const GptSearching = () => {
     const dispatch=useDispatch()
     const searchtxt=useRef(null)
     const openai = new OpenAI({
-        apiKey: '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', // This is the default and can be omitted
+        apiKey: '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',
+        //apiKey: , // This is the default and can be omitted
         dangerouslyAllowBrowser: true
       });
     const [mvelist,setmvelist]=useState("")

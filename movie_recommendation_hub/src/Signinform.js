@@ -28,6 +28,7 @@ const Signinform = () => {
             dispatch(changesigninstat())
             //
         }
+        navigate("/browse")
         dispatch(chgsuggestionbox(true))
         
     }
