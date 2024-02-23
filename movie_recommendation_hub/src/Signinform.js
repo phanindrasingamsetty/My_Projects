@@ -29,6 +29,7 @@ const Signinform = () => {
             //
         }
         navigate("/browse")
+        //window.open("/browse","_blank")
         dispatch(chgsuggestionbox(true))
         
     }
@@ -38,7 +39,7 @@ const Signinform = () => {
     <div className='flex items-center'>
             <button  onClick={()=>handlesuggestion()} className='bg-white mr-2 text-blue-600 font-bold rounded-md border border-black p-2'>Want a movie Suggesion?</button>
             {userdata&&<Link to="/wishlist"><button className='bg-blue-500 p-2 rounded-md mr-2 border border-black font-bold '>☑️MyWishList</button></Link>}
-            <Link to="/contact"><button className='bg-blue-500 p-2 rounded-md mr-2 border border-black font-bold '>Contact Us 📞</button></Link>
+            <Link to="/contact"><button className='bg-blue-500 p-2 rounded-md mr-2 border border-black font-bold '>📞Contact Us</button></Link>
             <button onClick={()=>handlesigninstat()}className='bg-blue-500 p-2 rounded-md  border border-black font-bold '>{!userdata?'SignIn':'SignOut'}</button>
             
         </div></div>
