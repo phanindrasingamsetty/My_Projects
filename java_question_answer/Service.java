@@ -1,10 +1,14 @@
-import java.util.Scanner;
+import java.util.*;
 
 import javax.security.auth.SubjectDomainCombiner;
 
 public class Service {
     int[] answers=new int[5];
     Questions[] que=new Questions[5];
+    List<Integer> a=Arrays.asList(1,2,3,4);
+
+    
+
     public Service(){
         que[0]=new Questions(1,"size of byte",1,2,3,4,1);
         que[1]=new Questions(2,"size of int",1,2,3,4,4);
